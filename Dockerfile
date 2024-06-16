@@ -3,7 +3,7 @@ FROM node:20.12.2-alpine3.18 as base
 FROM base
 ENV NODE_ENV=production
 WORKDIR /app
-COPY . ./
+COPY --from=production-deps /app/node_modules /app/node_modules
+COPY --from=build /app/build /app
 EXPOSE 8080
-RUN npm install
-CMD ["node", "/app/bin/server.ts"]
+CMD ["node", "./bin/server.js"]
