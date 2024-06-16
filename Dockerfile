@@ -6,5 +6,4 @@ WORKDIR /app
 COPY . ./
 EXPOSE 8080
 RUN npm install
-RUN node ace migration:run
 CMD ["node", "/app/bin/server.js"]
