@@ -18,4 +18,4 @@ WORKDIR /app
 COPY . ./
 EXPOSE 8080
 RUN npm install
-RUN npm run start
+CMD ["node", "/app/bin/server.js"]
